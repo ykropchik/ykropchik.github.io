@@ -1,0 +1,141 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: url(../img/background.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
+    width: 240px;
+    border-radius: 32px;
+    margin: 24px;
+    overflow: hidden;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+}
+
+.card-name {
+    position: absolute;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    opacity: 1;
+    transform: translateY(0px);
+    transition: 0.5s;
+}
+
+.card-bg {
+    height: 320px;
+    width: auto;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    height: 320px;
+    width: 240px;
+    border-radius: 32px;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+.card:hover::before {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.card:hover .card-name {
+    opacity: 0;
+    transform: translateY(-200px);
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover .card-content {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: 0.5s;
+    transition-delay: 0.2s;
+}
+
+.card-content {
+    position: absolute;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
+    width: 240px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: 0.5s;
+}
+
+.card-title {
+    margin-bottom: 32px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.card-info {
+    padding: 0 16px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.card-link {
+    text-decoration: none;
+    margin-top: 36px;
+    width: 50%;
+}
+
+.card-link button{
+    display: block;
+    padding: 8px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    border: 2px solid #fff;
+    border-radius: 2px 12px;
+    width: 100%;
+    transition: 0.5s;
+}
+
+.card-link:hover button{
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    transition: 0.5s;
+}

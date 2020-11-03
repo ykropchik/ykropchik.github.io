@@ -1,0 +1,237 @@
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+html * {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background: url(../img/bg_1\ \(redacted\).jpg) no-repeat;
+    background-position: center;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    height: 80px;
+    width: 100%;
+    padding: 24px 0;
+    background-color: rgba(17, 42, 51, 0.5);
+}
+
+header #logo {
+    position: relative;
+    display: inline;
+    font-size: 24px;
+    margin: 0 15% 0 20%;
+    font-weight: 700;
+    color: #FAF9FA;
+}
+
+header nav {
+    position: relative;
+    display: inline;
+}
+
+header span {
+    padding: 0 48px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #FAF9FA;
+}
+
+header span:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: #EE8D39;
+}
+
+header span.active {
+    text-decoration: none;
+    color: #EE8D39;
+}
+
+#piano-nav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 200px;
+    background-color: rgba(17, 42, 51, 0.5);
+    transition: 0.5s cubic-bezier(.8, 0, .33, 1);
+}
+
+#piano-nav.hide {
+    transform: translateX(-120px);
+    background-color:  rgba(17, 42, 51, 0);
+    transition: 0.5s cubic-bezier(.8, 0, .33, 1);
+}
+
+#piano-nav.hide nav{
+    transform: translateX(-120px);
+    transition: 0.5s cubic-bezier(.8, 0, .33, 1);
+}
+
+
+#piano-nav nav {
+    height: 400px;
+    width: 100%;
+    transition: 0.5s cubic-bezier(.8, 0, .33, 1);
+}
+
+#ico {
+    fill: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 24px;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    transition: 1.5s;
+}
+
+#ico .hide {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.white-key {
+    display: block;
+    margin-bottom: 1px;
+    height: 36px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.white-key:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.black-key {
+    position: absolute;
+    display: block;
+    height: 18px;
+    width: 50%;
+    left: 0;
+    transform: translateY(-8px);
+    background-color: #000;
+}
+
+.black-key:active {
+    background-color: rgb(54, 54, 54);
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    height: auto;
+    width: 60%;
+    margin: 15% 20%;
+    padding: 32px;
+    background-color: rgba(17, 42, 51, 0.5);
+    border-radius: 48px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.2s ease-in;
+}
+
+article.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all 0.5s ease-out;
+}
+
+
+article h1 {
+    position: relative;
+    display: block;
+    font-size: 36px;
+    margin: 0;
+    margin-bottom: 32px;
+    text-align: center;
+    color: #FAF9FA;
+}
+
+article h2 {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    color: #FAF9FA;
+}
+
+article.Home h1 h2 {
+    padding-left: 128px;
+}
+
+#photo {
+    position: absolute;
+    height: 128px;
+    width: 128px;
+    border-radius: 64px;
+    margin-left: 16px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#photo img {
+    height: 128px;
+    width: auto;
+    transform: translate(-60px, 0);
+}
+
+article .links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+article .icons {
+    display: inline-block;
+    height: 48px;
+    width: auto;
+    margin: 8px 0;
+}
+
+article .icons:hover {
+    cursor: pointer;
+}
+
+article .item {
+    position: relative;
+    display: inline-flex;
+    height: 64px;
+    width: auto;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+article a {
+    margin-left: 24px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #FAF9FA;
+}
+
+article a:hover {
+    color: #EE8D39;
+}
+
+footer {
+    flex: 0 0 auto;
+    bottom: 0;
+    height: 32px;
+    width: 100%;
+    background-color: #000;
+}
