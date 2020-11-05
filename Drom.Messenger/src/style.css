@@ -96,7 +96,7 @@ article {
     align-items: center;
     background-color: transparent;
     z-index: 1;
-    flex: 1 0 auto;
+    width: 75%;
 }
 
 .message-input {
@@ -135,11 +135,14 @@ article {
 }
 
 .message {
+    display: inline-block;
     align-self: flex-end;
     max-width: 45%;
+    height: auto;
     padding: 16px;
     margin: 12px 48px;
     color: #E8E9EB;
     border-radius: 16px;
     background-color: #9880A1;
+    word-wrap: break-word;
 }
