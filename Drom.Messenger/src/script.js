@@ -38,7 +38,9 @@ function createMessage(text) {
     let message = document.createElement('span');
     message.classList.add('message');
     message.textContent = text;
-    document.getElementById('messages-container').append(message);
+    let messagesContainer = document.getElementById('messages-container');
+    messagesContainer.append(message);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
 function saveMessage(text) {

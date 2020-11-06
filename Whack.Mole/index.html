@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="src/style.css">
+    <title>Whack a Mole</title>
+</head>
+<body>
+    <div id="game-info">
+        <h1>Добро пожаловать в игру "Убей крота"</h2>
+        <h2>Твоя задача за 20 секунд убить как можно больше кротов.</h2>
+        <h2>Если ты готов, нажимай кнопку "Старт" и мочи кротов!</h2>
+        <button class="start-button">СТАРТ</button>
+    </div>
+
+    <div id="game-end">
+        <h1></h1>
+        <h2></h2>
+        <button class="start-button">ИГРАТЬ СНОВА</button>
+    </div>
+
+    <div id="score">
+        <span>Счет: 0</span>
+    </div>
+
+    <div id="game-field">
+        <img src="img/mole.png" draggable="false" id="m1" class="mole-img" style="grid-area: m1;">
+        <img src="img/mole.png" draggable="false" id="m2" class="mole-img" style="grid-area: m2;">
+        <img src="img/mole.png" draggable="false" id="m3" class="mole-img" style="grid-area: m3;">
+        <img src="img/mole.png" draggable="false" id="m4" class="mole-img" style="grid-area: m4;">
+        <img src="img/mole.png" draggable="false" id="m5" class="mole-img" style="grid-area: m5;">
+        <img src="img/mole.png" draggable="false" id="m6" class="mole-img" style="grid-area: m6;">
+        <img src="img/mole.png" draggable="false" id="m7" class="mole-img" style="grid-area: m7;">
+        <img src="img/mole.png" draggable="false" id="m8" class="mole-img" style="grid-area: m8;">
+        <img src="img/mole.png" draggable="false" id="m9" class="mole-img" style="grid-area: m9;">
+    </div>
+
+    <div id="timer">
+        <div id="progress"></div>
+        <span>Времени осталось: 20 секунд</span>
+    </div>
+    
+    <script src="src/script.js"></script>
+</body>
+</html>
