@@ -73,7 +73,7 @@ function endGame() {
     let h1 = document.getElementById('game-end').getElementsByTagName('h1')[0];
     let h2 = document.getElementById('game-end').getElementsByTagName('h2')[0];
 
-    if (score > 20) {
+    if (score >= 20) {
         h1.innerHTML = 'Ты просто лучший';
         h2.innerHTML = 'Ты уничтожил ' + score + ' кротов. Прекрасный результат боец, ты просто анигилятор кротов!';
     } else if (score < 20 && score > 8) {
