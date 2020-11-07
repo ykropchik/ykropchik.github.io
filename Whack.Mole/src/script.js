@@ -1,6 +1,7 @@
 var moleArray = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9'];
 var score = 0;
 var startTime;
+var gameEnd = true;
 
 window.addEventListener('DOMContentLoaded', initialisation());
 
@@ -24,6 +25,14 @@ function getRandomMole() {
 
 function addMole(id) {
     document.getElementById(id).style.display = 'block';
+    if (!gameEnd) {
+        setTimeout(function(){
+            if (document.getElementById(id).style.display != 'none') {
+                removeMole(id);
+                setTimeout(addMole, Math.random() * Math.floor(300) + 100, getRandomMole());
+            } 
+        }, Math.round(Math.random() * Math.floor(800)) + 300);
+    }
 }
 
 function removeMole(id) {
@@ -62,14 +71,20 @@ function clearField() {
 
 function startGame() {
     score = 0;
+    changeScore();
+    
     clearField();
     document.getElementById('game-info').style.display = 'none';
     document.getElementById('game-end').style.display = 'none';
+
+    gameEnd = false;
     startTimer();
     setTimeout(addMole, 300, getRandomMole());
 }
 
 function endGame() {
+    gameEnd = true;
+    
     let h1 = document.getElementById('game-end').getElementsByTagName('h1')[0];
     let h2 = document.getElementById('game-end').getElementsByTagName('h2')[0];
 
