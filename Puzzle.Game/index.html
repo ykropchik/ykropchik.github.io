@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="src/style.css">
+    <title>Puzzle Game</title>
+</head>
+<body>
+    <div id="start-info">
+        <h1>Добро пожаловать!</h1>
+        <h2>Это игра мини-головоломка взята из игры "Братья пилоты".</h2>
+        <h2>Суть игры заключается в том, что при повороте одного из 16 вентилей, поворачиваются все по горизонтали и вертикали.</h2>
+        <h2>Для победы необходимо поставить все вентили вертикально.</h2>
+        <h2>В случае победы тебя ждет приятный сюрприз :) Удачи!</h2>
+        <button class="start-button">Начать игру</button>
+    </div>
+
+    <div id="end-info">
+        <h1>Поздравляю!</h1>
+        <h2>Ты одолел эту головоломку!</h2>
+        <div class="buttons-container">
+            <a href="https://drom.ru"><button class="prise-button">Получить приз</button></a>
+            <button class="start-button restart-button">Начать заново</button>
+        </div>
+    </div>
+
+    <div id="game-field" class="hide">
+        <img class="faucet" src="img/faucet.png" column='1' row='1'>
+        <img class="faucet" src="img/faucet.png" column='2' row='1'>
+        <img class="faucet" src="img/faucet.png" column='3' row='1'>
+        <img class="faucet" src="img/faucet.png" column='4' row='1'>
+        <img class="faucet" src="img/faucet.png" column='1' row='2'>
+        <img class="faucet" src="img/faucet.png" column='2' row='2'>
+        <img class="faucet" src="img/faucet.png" column='3' row='2'>
+        <img class="faucet" src="img/faucet.png" column='4' row='2'>
+        <img class="faucet" src="img/faucet.png" column='1' row='3'>
+        <img class="faucet" src="img/faucet.png" column='2' row='3'>
+        <img class="faucet" src="img/faucet.png" column='3' row='3'>
+        <img class="faucet" src="img/faucet.png" column='4' row='3'>
+        <img class="faucet" src="img/faucet.png" column='1' row='4'>
+        <img class="faucet" src="img/faucet.png" column='2' row='4'>
+        <img class="faucet" src="img/faucet.png" column='3' row='4'>
+        <img class="faucet" src="img/faucet.png" column='4' row='4'>
+    </div>
+
+    <script src="src/script.js"></script>
+</body>
+</html>
