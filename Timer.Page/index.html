@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="src/style.css">
+    <title>Timer</title>
+</head>
+<body>
+    <div id="info-icon-container">
+        <svg id="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+            <path xmlns="http://www.w3.org/2000/svg" d="M0 0h24v24H0z" fill="none"/>
+            <path xmlns="http://www.w3.org/2000/svg" d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+        </svg>
+    </div>
+
+    <div id="info-container">
+        <h1>Добро пожаловать!</h1>
+        <h2>Для того чтобы воспользоваться таймер, задайте время используя курсор и колесико мыши, после чего нажмите кнопку "Старт!"</h2>
+        <h2>По окончании времени будет выведено соответствующее сообщение</h2>
+        <h2>Приятного пользования!</h2>
+        <button id="accept-btn">Понятно</button>
+    </div>
+
+    <div id="timer-container">
+        <span id="hours">00</span>
+        <span class="dots">:</span>
+        <span id="minutes">00</span>
+        <span class="dots">:</span>
+        <span id="seconds">00</span>
+    </div>
+
+    <button id="start-btn">Старт!</button>
+
+    <script src="src/script.js"></script>
+</body>
+</html>
