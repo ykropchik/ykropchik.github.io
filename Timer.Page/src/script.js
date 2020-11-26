@@ -23,47 +23,27 @@ function initialisation() {
         }, 500);
     });
 
-    document.getElementById('timer-container').addEventListener('wheel', function(event) {
-       switch (event.target.id) {
-           case 'hours':
-               if (event.deltaY < 0) { 
-                   if (++hours === 24) { hours = 0;}
-               } else {
-                if (--hours === -1) { hours = 23;}
-               }
-               
-               document.getElementById('hours').innerHTML = hours < 10 ? '0' + hours : hours;
-               break;
-            case 'minutes':
-                if (event.deltaY < 0) { 
-                    if (++minutes === 60) { minutes = 0;}
-                } else {
-                    if (--minutes === -1) { minutes = 59;}
-                }
-
-                document.getElementById('minutes').innerHTML = minutes < 10 ? '0' + minutes : minutes;
-                break;
-            case 'seconds':
-                if (event.deltaY < 0) { 
-                    if (++seconds === 60) { seconds = 0;}
-                } else {
-                    if (--seconds === -1) { seconds = 59;}
-                }
-
-                document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
-                break;
-       }
-    });
+    document.getElementById('timer-container').addEventListener('wheel', changeTimer);
 
     document.getElementById('start-btn').addEventListener('mouseup', function() {
         if (hours !== 0 || minutes !== 0 || seconds !== 0) {
+            document.getElementById('timer-container').removeEventListener('wheel', changeTimer);
             const timer = new Promise(function (resolve, reject) {
+                let timerSec = (hours * 60 * 60) + (minutes * 60) + seconds;
+                let startTime = new Date().getTime();
+                let oldTime = startTime;
                 setInterval(() => {
-                    if (--seconds === -1) { 
-                        seconds = 59;
-                        if (--minutes === -1) { 
-                            minutes = 59;
-                            --hours;
+                    let time = new Date().getTime();
+
+                    if (time - oldTime >= 1000) {
+                        oldTime = time;
+
+                        if (--seconds === -1) { 
+                            seconds = 59;
+                            if (--minutes === -1) { 
+                                minutes = 59;
+                                --hours;
+                            }
                         }
                     }
 
@@ -71,10 +51,11 @@ function initialisation() {
                     document.getElementById('minutes').innerHTML = minutes < 10 ? '0' + minutes : minutes;
                     document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
 
-                    if ((hours * 60 * 60) + (minutes * 60) + seconds === 0) {
+                    console.log(new Date().getTime() - startTime >= timerSec * 1000);
+                    if (new Date().getTime() - startTime >= timerSec * 1000) {
                         resolve();
                     }
-                }, 1000);
+                }, 1);
             })
             
             document.getElementById('start-btn').style.display = 'none';
@@ -90,3 +71,34 @@ function initialisation() {
     })
 }
 
+const changeTimer = function(event) {
+    switch (event.target.id) {
+        case 'hours':
+            if (event.deltaY < 0) { 
+                if (++hours === 24) { hours = 0;}
+            } else {
+             if (--hours === -1) { hours = 23;}
+            }
+            
+            document.getElementById('hours').innerHTML = hours < 10 ? '0' + hours : hours;
+            break;
+         case 'minutes':
+             if (event.deltaY < 0) { 
+                 if (++minutes === 60) { minutes = 0;}
+             } else {
+                 if (--minutes === -1) { minutes = 59;}
+             }
+
+             document.getElementById('minutes').innerHTML = minutes < 10 ? '0' + minutes : minutes;
+             break;
+         case 'seconds':
+             if (event.deltaY < 0) { 
+                 if (++seconds === 60) { seconds = 0;}
+             } else {
+                 if (--seconds === -1) { seconds = 59;}
+             }
+
+             document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
+             break;
+    }
+}

@@ -55,9 +55,9 @@ body {
     left: -8px;
     height: 0px;
     width: 0px;
-    border-radius: 0px 48px 48px 48px;
+    border-radius: 0px 128px 128px 128px;
     background-color: rgba(0, 0, 0, 0.85);
-    transition: 0.5s;
+    transition: 0.4s;
     z-index: -1;
 }
 
@@ -137,6 +137,30 @@ h2 {
     margin-bottom: 64px;
 }
 
+#timer-container span {
+    color: #fff;
+    font-size: 10vw;
+}
+
+#start-btn {
+    display: block;
+    cursor: pointer;
+    background-color:  rgba(0, 0, 0, 0.65);
+    color: #fff;
+    outline: none;
+    border: none;
+    height: 48px;
+    width: 128px;
+    border-radius: 24px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 0;
+}
+
+#timeIsUp {
+    font-size: 6vw !important;
+}
+
 @media screen and (max-width: 500px){
     #timer-container {
         position: relative;
@@ -148,29 +172,4 @@ h2 {
         background-color: rgba(0, 0, 0, 0.65);
         border-radius: 25vw;
     }
-}
-
-#timer-container span {
-    color: #fff;
-    font-size: 10vw;
-}
-
-#start-btn {
-    display: block;
-    cursor: pointer;
-    background-color:  rgba(0, 0, 0, 0.65);
-    color: #fff;
-    font-size: 16px;
-    outline: none;
-    border: none;
-    height: 4vw;
-    width: 8vw;
-    border-radius: 2vw;
-    font-size: 2vw;
-    cursor: pointer;
-    z-index: 0;
-}
-
-#timeIsUp {
-    font-size: 6vw !important;
 }
