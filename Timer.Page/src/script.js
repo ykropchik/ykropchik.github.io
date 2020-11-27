@@ -53,7 +53,7 @@ function initialisation() {
                     document.getElementById('hours').innerHTML = hours < 10 ? '0' + hours : hours;
                     document.getElementById('minutes').innerHTML = minutes < 10 ? '0' + minutes : minutes;
                     document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
-                    
+
                     if (new Date().getTime() - startTime >= timerSec * 1000) {
                         resolve();
                     }
@@ -74,19 +74,20 @@ function initialisation() {
 }
 
 const changeTimer = function(event) {
-    if (event.changedTouches[0]) {
+    if (event.changedTouches) {        
         switch (event.target.id) {
             case 'hours':
-                changeHour(lastTouch - event.changedTouches[0].clientY);
+                changeHour(-(lastTouch - event.changedTouches[0].clientY));
                 break;
              case 'minutes':
-                changeMinute(lastTouch - event.changedTouches[0].clientY);
+                changeMinute(-(lastTouch - event.changedTouches[0].clientY));
                 break;
              case 'seconds':
-                changeSeconds(lastTouch - event.changedTouches[0].clientY);
+                changeSeconds(-(lastTouch - event.changedTouches[0].clientY));
                 break;
         }
     } else {
+        console.log(event.deltaY);
         switch (event.target.id) {
             case 'hours':
                 changeHour(event.deltaY);
@@ -112,7 +113,7 @@ function changeHour(delta) {
 }
 
 function changeMinute(delta) {
-    if (event.deltaY < 0) { 
+    if (delta < 0) { 
         if (++minutes === 60) { minutes = 0;}
     } else {
         if (--minutes === -1) { minutes = 59;}
@@ -122,7 +123,7 @@ function changeMinute(delta) {
 }
 
 function changeSeconds(delta) { 
-    if (event.deltaY < 0) { 
+    if (delta < 0) { 
         if (++seconds === 60) { seconds = 0;}
     } else {
         if (--seconds === -1) { seconds = 59;}
