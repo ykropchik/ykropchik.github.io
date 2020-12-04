@@ -162,7 +162,7 @@ h2 {
     font-size: 6vw !important;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
     #timer-container {
         position: relative;
         display: flex;
