@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="src/style.css"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="example1">
+        <button v-if="!start" v-on:click="start = true">Первый пример</button>
+        <transition name="fade">
+            <div v-if="start">
+                <h1>Вычисляемые свойства</h1>
+                <p>Привет, {{ message }}</p>
+                <input v-model="message" placeholder="Введи имя">
+            </div>
+        </transition>
+    </div>
+
+    <div id="example2">
+        <button v-if="!start" v-on:click="start = true">Второй пример</button>
+        <div v-if="start">
+            <h1>Условная отрисовка</h1>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <span v-if="checked">DROM - лучший сайт для продажи автомобиля</span>
+        </div>
+    </div>  
+
+    <div id="example3">
+        <button v-if="!start" v-on:click="start = true">Третий пример</button>
+        <div v-if="start" id="ex3-cont">
+            <h1>Обработка событий</h1>
+            <button v-on:click="inc">Нажми меня</button>
+        </div>
+    </div>
+    
+    <script src="src/script.js"></script>
+</body>
+</html>
