@@ -13,6 +13,7 @@ const COLORS = [
 ]
 
 $('document').ready(function() {
+    addSpinner();
     getPosts();
     initialization();
 });
@@ -110,14 +111,15 @@ function insertPost(post) {
 
 
 function getPosts() {
-    $('#posts-board').html('');
-
     $.ajax({
         url: '/api/posts',
         type: 'GET',
         contentType: 'application/json',
     }).done((res) => {
         let posts = JSON.parse(res);
+        console.log(posts);
+
+        $('#posts-board').html('');
         for (var i = 0; i < posts.length; i++) {
             insertPost(posts[i]);
         }
@@ -129,26 +131,11 @@ function sendPost(post) {
         url: '/api/posts',
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify(post)
+        data: JSON.stringify(post),
+        beforeSend: addSpinner()
     }).done((res) => getPosts());
 }
 
-function сolorLuminance(hex, lum) {
-
-	// validate hex string
-	hex = String(hex).replace(/[^0-9a-f]/gi, '');
-	if (hex.length < 6) {
-		hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
-	}
-	lum = lum || 0;
-
-	// convert to decimal and change luminosity
-	var rgb = "#", c, i;
-	for (i = 0; i < 3; i++) {
-		c = parseInt(hex.substr(i*2,2), 16);
-		c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-		rgb += ("00"+c).substr(c.length);
-	}
-
-	return rgb;
+function addSpinner() {
+    $('#posts-board').html('<div class="loader">');
 }
